@@ -132,6 +132,10 @@ const FAQ = [
     q: "Posso usar para processos licitatórios?",
     a: "Sim. Os relatórios exportáveis são ideais para subsidiar análises de risco em licitações, contratos administrativos e operações de crédito.",
   },
+  {
+    q: "Como o Score MuniScore é calculado?",
+    a: "Todos os dados utilizados são oriundos de portais de informações públicas. O sistema utiliza uma inteligência proprietária para definir, com base nas informações disponibilizadas, o Score de cada município. O Score serve única e exclusivamente para ilustrar a situação fiscal daquele órgão, não garantindo e nem se responsabilizando por ações dos órgãos públicos ou de seus servidores.",
+  },
 ];
 
 function useInView(ref) {
@@ -229,7 +233,7 @@ export default function LandingPage() {
                 onMouseEnter={e => e.target.style.color = C.accent}
                 onMouseLeave={e => e.target.style.color = C.tm}>{l}</a>
             ))}
-            <a href="#pricing"
+            <a href="https://muniscore-brasil-ztvo.vercel.app/" target="_blank" rel="noopener"
               style={{
                 background: C.accent, color: C.bg, padding: "8px 20px", borderRadius: 8,
                 fontSize: 13, fontWeight: 700, fontFamily: "DM Sans", textDecoration: "none",
@@ -281,7 +285,7 @@ export default function LandingPage() {
           </p>
 
           <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap", animation: "slideUp .6s ease .3s both" }}>
-            <a href="#pricing" className="cta-btn" style={{
+            <a href="https://muniscore-brasil-ztvo.vercel.app/" target="_blank" rel="noopener" className="cta-btn" style={{
               background: `linear-gradient(135deg, ${C.accent}, ${C.accent2})`, color: C.bg,
               padding: "16px 36px", borderRadius: 12, fontSize: 16, fontWeight: 800,
               fontFamily: "Outfit", textDecoration: "none", transition: "all .3s",
@@ -478,7 +482,8 @@ export default function LandingPage() {
                     </div>
                   ))}
                 </div>
-                <button
+                <a
+                  href="https://muniscore-brasil-ztvo.vercel.app/" target="_blank" rel="noopener"
                   className={plan.popular ? "cta-btn" : ""}
                   style={{
                     width: "100%", padding: "14px 0", borderRadius: 12, border: "none", cursor: "pointer",
@@ -486,7 +491,7 @@ export default function LandingPage() {
                     color: plan.popular ? C.bg : C.txs,
                     border: plan.popular ? "none" : `1px solid ${C.bd}`,
                     fontFamily: "Outfit", fontWeight: 700, fontSize: 15,
-                    transition: "all .3s",
+                    transition: "all .3s", textDecoration: "none", display: "block", textAlign: "center",
                   }}
                   onMouseEnter={e => {
                     if (!plan.popular) { e.target.style.borderColor = C.accent; e.target.style.color = C.accent; }
@@ -494,7 +499,7 @@ export default function LandingPage() {
                   onMouseLeave={e => {
                     if (!plan.popular) { e.target.style.borderColor = C.bd; e.target.style.color = C.txs; }
                   }}
-                >{plan.cta}</button>
+                >{plan.cta}</a>
               </div>
             ))}
           </div>
@@ -557,7 +562,7 @@ export default function LandingPage() {
         <p style={{ fontFamily: "DM Sans", color: C.tm, fontSize: 16, maxWidth: 480, margin: "0 auto 32px" }}>
           7 dias grátis. Sem cartão de crédito. Sem compromisso.
         </p>
-        <a href="#pricing" className="cta-btn" style={{
+        <a href="https://muniscore-brasil-ztvo.vercel.app/" target="_blank" rel="noopener" className="cta-btn" style={{
           display: "inline-flex", alignItems: "center", gap: 8,
           background: `linear-gradient(135deg, ${C.accent}, ${C.accent2})`, color: C.bg,
           padding: "18px 44px", borderRadius: 14, fontSize: 18, fontWeight: 800,
