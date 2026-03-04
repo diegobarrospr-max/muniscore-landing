@@ -228,7 +228,7 @@ export default function LandingPage() {
             <span style={{ color: "#fff" }}>Score</span>
           </div>
           <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
-            {[["#features", "Recursos"], ["#pricing", "Planos"], ["#faq", "FAQ"]].map(([h, l]) => (
+            {[["#demo", "Demo"], ["#features", "Recursos"], ["#pricing", "Planos"], ["#faq", "FAQ"]].map(([h, l]) => (
               <a key={h} href={h} style={{ color: C.tm, textDecoration: "none", fontSize: 14, fontFamily: "DM Sans", fontWeight: 500, transition: "color .2s" }}
                 onMouseEnter={e => e.target.style.color = C.accent}
                 onMouseLeave={e => e.target.style.color = C.tm}>{l}</a>
@@ -293,7 +293,7 @@ export default function LandingPage() {
             }}>
               Testar grátis por 7 dias <span style={{ fontSize: 20 }}>→</span>
             </a>
-            <a href="https://muniscore-brasil-ztvo.vercel.app/" target="_blank" rel="noopener" style={{
+            <a href="#demo" style={{
               background: "transparent", color: C.txs,
               padding: "16px 32px", borderRadius: 12, fontSize: 15, fontWeight: 600,
               fontFamily: "DM Sans", textDecoration: "none", transition: "all .2s",
@@ -324,6 +324,116 @@ export default function LandingPage() {
           </div>
         </div>
       </div>
+
+      {/* ── DEMO ── */}
+      <Section id="demo">
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "80px 24px" }}>
+          <div style={{ textAlign: "center", marginBottom: 56 }}>
+            <h2 style={{ fontFamily: "Outfit", fontWeight: 800, fontSize: "clamp(28px, 3.5vw, 42px)", marginBottom: 16 }}>
+              Conheça a plataforma <span style={{ color: C.accent }}>por dentro</span>
+            </h2>
+            <p style={{ fontFamily: "DM Sans", color: C.tm, fontSize: 16, maxWidth: 550, margin: "0 auto" }}>
+              Veja como o MuniScore transforma dados públicos em inteligência acionável.
+            </p>
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+            {[
+              {
+                title: "Página Inicial",
+                desc: "Mapa interativo do Brasil colorido por score médio de cada estado. Busque qualquer município instantaneamente, veja estatísticas gerais e acesse o ranking com um clique.",
+                icon: "🗺️",
+                features: ["Mapa interativo por estado", "Busca com autocomplete", "Cards de estatísticas", "Classificação geral"],
+                color: C.accent,
+              },
+              {
+                title: "Ranking Completo",
+                desc: "Todos os municípios ordenados por score fiscal, com filtros por UF, região, classificação, CAPAG e porte. Paginação inteligente e ordenação por qualquer coluna.",
+                icon: "📊",
+                features: ["Filtros avançados", "Ordenação dinâmica", "Score + CAPAG + Classificação", "Status de entrega"],
+                color: C.blue,
+              },
+              {
+                title: "Visão Geral do Município",
+                desc: "Diagnóstico fiscal completo: gauge de score, radar de dimensões, detalhamento de receitas e despesas, notas CAPAG individuais e indicadores financeiros.",
+                icon: "🔍",
+                features: ["Gauge de score visual", "Radar de 4 dimensões", "CAPAG detalhado", "Indicadores financeiros"],
+                color: "#f59e0b",
+              },
+              {
+                title: "Comparativo",
+                desc: "Selecione dois municípios e compare lado a lado: scores por dimensão, indicadores, CAPAG e classificação. Ideal para decidir entre oportunidades.",
+                icon: "⚖️",
+                features: ["Comparação lado a lado", "Barras por dimensão", "Tabela de indicadores", "Gauges individuais"],
+                color: "#8b5cf6",
+              },
+              {
+                title: "Panorama Nacional",
+                desc: "Visão macro: distribuição por score e CAPAG, médias regionais, top 10 e piores 10. Gráficos interativos com tooltips detalhados.",
+                icon: "📈",
+                features: ["Gráficos de pizza", "Média por região", "Top 10 e piores 10", "Distribuição por CAPAG"],
+                color: "#ef4444",
+              },
+            ].map((screen, i) => (
+              <div key={i} style={{
+                display: "flex", gap: 32, alignItems: "center",
+                flexDirection: i % 2 === 0 ? "row" : "row-reverse",
+                background: `linear-gradient(135deg, ${C.sf}, ${C.sf2})`,
+                border: `1px solid ${C.bd}`, borderRadius: 20, padding: 32,
+                transition: "all .3s",
+              }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = `${screen.color}44`; e.currentTarget.style.transform = "translateY(-3px)"; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = C.bd; e.currentTarget.style.transform = "translateY(0)"; }}
+              >
+                {/* Mockup */}
+                <div style={{ flex: "0 0 340px", height: 220, background: C.bg, borderRadius: 12, border: `1px solid ${C.bd}`, overflow: "hidden", position: "relative" }}>
+                  {/* Title bar */}
+                  <div style={{ display: "flex", alignItems: "center", gap: 6, padding: "8px 12px", borderBottom: `1px solid ${C.bd}`, background: `${C.sf}` }}>
+                    <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#ef4444" }} />
+                    <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#f59e0b" }} />
+                    <div style={{ width: 8, height: 8, borderRadius: "50%", background: "#22c55e" }} />
+                    <span style={{ marginLeft: 8, fontSize: 10, color: C.tm, fontFamily: "DM Sans" }}>MuniScore — {screen.title}</span>
+                  </div>
+                  {/* Content mockup */}
+                  <div style={{ padding: 16, display: "flex", flexDirection: "column", gap: 8 }}>
+                    <div style={{ fontSize: 32, textAlign: "center", marginBottom: 4 }}>{screen.icon}</div>
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 6 }}>
+                      {screen.features.map((f, j) => (
+                        <div key={j} style={{ background: `${screen.color}11`, border: `1px solid ${screen.color}22`, borderRadius: 6, padding: "6px 8px", fontSize: 10, color: screen.color, fontFamily: "DM Sans", fontWeight: 500, textAlign: "center" }}>{f}</div>
+                      ))}
+                    </div>
+                    <div style={{ display: "flex", gap: 4, marginTop: 4 }}>
+                      {[...Array(5)].map((_, j) => (
+                        <div key={j} style={{ flex: 1, height: 3, borderRadius: 2, background: `${screen.color}${j < 3 ? "66" : "22"}` }} />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Description */}
+                <div style={{ flex: 1 }}>
+                  <div style={{ display: "inline-flex", alignItems: "center", gap: 8, marginBottom: 12, background: `${screen.color}12`, border: `1px solid ${screen.color}33`, borderRadius: 99, padding: "5px 14px" }}>
+                    <span style={{ fontSize: 16 }}>{screen.icon}</span>
+                    <span style={{ fontFamily: "DM Sans", fontSize: 12, fontWeight: 600, color: screen.color }}>{screen.title}</span>
+                  </div>
+                  <p style={{ fontFamily: "DM Sans", fontSize: 15, lineHeight: 1.7, color: C.txs, margin: 0 }}>{screen.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ textAlign: "center", marginTop: 40 }}>
+            <a href="https://muniscore-brasil-ztvo.vercel.app/" target="_blank" rel="noopener" className="cta-btn" style={{
+              display: "inline-flex", alignItems: "center", gap: 8,
+              background: `linear-gradient(135deg, ${C.accent}, ${C.accent2})`, color: C.bg,
+              padding: "14px 32px", borderRadius: 12, fontSize: 15, fontWeight: 800,
+              fontFamily: "Outfit", textDecoration: "none", transition: "all .3s",
+            }}>
+              Experimente grátis por 7 dias <span style={{ fontSize: 18 }}>→</span>
+            </a>
+          </div>
+        </div>
+      </Section>
 
       {/* ── PAIN POINTS ── */}
       <Section>
@@ -483,7 +593,7 @@ export default function LandingPage() {
                   ))}
                 </div>
                 <a
-                  href="https://muniscore-brasil-ztvo.vercel.app/" target="_blank" rel="noopener"
+                  href={`https://muniscore-brasil-ztvo.vercel.app/?plan=${plan.id}`} target="_blank" rel="noopener"
                   className={plan.popular ? "cta-btn" : ""}
                   style={{
                     width: "100%", padding: "14px 0", borderRadius: 12, border: "none", cursor: "pointer",
