@@ -9,7 +9,7 @@ const PLANS = [
     features: [
       "100 consultas por mês",
       "Ranking completo de municípios",
-      "Score fiscal + CAPAG detalhado",
+      "Score MuniScore + CAPAG detalhado",
       "Comparativo entre 2 municípios",
       "Panorama nacional e regional",
       "Exportação em PDF",
@@ -59,8 +59,8 @@ const PAIN_POINTS = [
 const FEATURES = [
   {
     icon: "📊",
-    title: "Score Fiscal Proprietário",
-    desc: "Algoritmo que cruza dados de receita, despesa, endividamento e capacidade de pagamento em uma nota de 0 a 1000.",
+    title: "Score MuniScore",
+    desc: "Algoritmo exclusivo que cruza dados de receita, despesa, endividamento e capacidade de pagamento em uma nota de 0 a 1000.",
   },
   {
     icon: "⚡",
@@ -281,7 +281,7 @@ export default function LandingPage() {
             animation: "slideUp .6s ease .2s both",
           }}>
             Saiba a real situação fiscal de qualquer município brasileiro em segundos.
-            Score proprietário, CAPAG, indicadores financeiros — tudo em um só lugar.
+            Score MuniScore, CAPAG, indicadores financeiros — tudo em um só lugar.
           </p>
 
           <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap", animation: "slideUp .6s ease .3s both" }}>
